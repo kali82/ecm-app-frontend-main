@@ -1,0 +1,20 @@
+<div
+  class="flex h-full w-full flex-col overflow-auto bg-surface"
+  *transloco="let t; read: 'home'"
+>
+  <div class="fixed z-10 w-full bg-surface">
+    <schaeffler-subheader subheaderTitle="" [showBackButton]="false">
+      <ng-container subheaderTitleContent>
+        <div class="flex w-full flex-row items-center justify-start gap-3 pt-5">
+          <mat-icon class="flex-none text-medium-emphasis">home</mat-icon>
+          {{ t('title') }}
+        </div>
+      </ng-container>
+      <ng-container subheaderBlockContent>
+        <div class="line-clamp-1 ml-9 text-subtitle-1 text-medium-emphasis">
+          {{ t('welcomeText') }}
+        </div>
+      </ng-container>
+    </schaeffler-subheader>
+  </div>
+</div>

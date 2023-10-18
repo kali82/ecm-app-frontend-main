@@ -1,0 +1,16 @@
+/*
+ * Angular Material, material design components
+ * see https://material.angular.io
+ */
+
+@import '@schaeffler/styles/src/lib/scss/material-theme';
+
+/*
+ * TailwindCSS, utility-first css framework
+ * see https://tailwindcss.com/docs
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add global styles to this file, and also import other style files */

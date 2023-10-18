@@ -1,0 +1,14 @@
+# Those values are unique for each namespace:
+namespace: ecm-app-p
+namespace_name_short: ecmp
+container_registry_repository: frontend
+az_service_principal: SG_aksprivscp001ecmp
+key_vault_name: kv-aksprivscp001ecmp
+
+# Dont change the following values:
+cluster_name: aksprivsc-p-001-v001
+cluster_resource_group: ReG_aksprivsc-p-001-v001
+cluster_subscription: 3caaa150-7cc9-475e-ad8d-605be863285a
+
+# The name of the centralized ACR
+container_registry: acraksprivscp001.azurecr.io

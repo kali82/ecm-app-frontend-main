@@ -1,0 +1,13 @@
+# Those values are unique for each namespace:
+namespace: ecm-app-q
+namespace_name_short: ecmq
+container_registry_repository: frontend
+az_service_principal: SG_aksprivscq001ecmq
+
+# Dont change the following values:
+cluster_name: aksprivsc-q-001-v001
+cluster_resource_group: ReG_aksprivsc-q-001-v001
+cluster_subscription: 2a63eb8e-f63f-4081-aceb-ff3a51aad16b
+
+# The name of the centralized ACR
+container_registry: acraksprivscq001.azurecr.io

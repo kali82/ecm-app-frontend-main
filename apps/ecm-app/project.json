@@ -1,0 +1,146 @@
+{
+  "name": "ecm-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/ecm-app/src",
+  "prefix": "ecm-app",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ecm-app",
+        "index": "apps/ecm-app/src/index.html",
+        "main": "apps/ecm-app/src/main.ts",
+        "polyfills": "apps/ecm-app/src/polyfills.ts",
+        "tsConfig": "apps/ecm-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/ecm-app/src/favicon.ico", "apps/ecm-app/src/assets"],
+        "styles": [
+          "apps/ecm-app/src/styles.scss",
+          "node_modules/@fontsource/material-icons/400.css",
+          "node_modules/@fontsource/roboto/300.css",
+          "node_modules/@fontsource/roboto/400.css",
+          "node_modules/@fontsource/roboto/500.css"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["@schaeffler/styles/src"]
+        },
+        "scripts": []
+      },
+      "configurations": {
+        "local": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        },
+        "dev": {
+          "statsJson": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "1mb",
+              "maximumError": "2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ]
+        },
+        "qas": {
+          "outputHashing": "bundles",
+          "statsJson": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "1mb",
+              "maximumError": "2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/ecm-app/src/environments/environment.ts",
+              "with": "apps/ecm-app/src/environments/environment.qas.ts"
+            }
+          ]
+        },
+        "prod": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "1mb",
+              "maximumError": "2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/ecm-app/src/environments/environment.ts",
+              "with": "apps/ecm-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "bundles"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "configurations": {
+        "local": {
+          "browserTarget": "ecm-app:build:local",
+          "proxyConfig": "apps/ecm-app/proxy.conf.js"
+        },
+        "dev": {
+          "browserTarget": "ecm-app:build:dev"
+        },
+        "qa": {
+          "browserTarget": "ecm-app:build:qa"
+        },
+        "production": {
+          "browserTarget": "ecm-app:build:production"
+        }
+      },
+      "defaultConfiguration": "local"
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "configurations": {
+        "ci": {
+          "format": "checkstyle",
+          "outputFile": "checkstyle/apps/ecm-app/checkstyle.xml",
+          "force": true
+        }
+      },
+      "options": {
+        "lintFilePatterns": ["apps/ecm-app/**/*.ts", "apps/ecm-app/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/ecm-app"],
+      "options": {
+        "jestConfig": "apps/ecm-app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

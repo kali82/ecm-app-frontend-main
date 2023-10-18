@@ -1,0 +1,13 @@
+<schaeffler-app-shell
+  [appTitle]="title"
+  [hasSidebarLeft]="true"
+  [userName]="username$ | ngrxPush"
+  [userImageUrl]="profileImage$ | ngrxPush"
+  [hasFooter]="true"
+>
+  <ng-container mainContent>
+    <div class="fullscreen-bg h-full w-full">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-container>
+</schaeffler-app-shell>
